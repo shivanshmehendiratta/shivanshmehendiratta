@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import Head from 'next/head'
-import Image from 'next/image'
 import Navbar from '../components/Navbar'
 import {createGlobalStyle} from "styled-components";
 import React, { useState, useEffect } from "react";
@@ -74,11 +73,11 @@ export default function Home() {
   {/* <Title>My page</Title> */}
   <Container>
     <ImageContainer>
-    <Image
-            src="/images/pro.png"
+    <img
+            src="https://res.cloudinary.com/instacloneapp/image/upload/v1622266435/shivansh.xyz/Shivansh_b8fhwp.png"
             height={300}
             width={300}
-            priority
+            style={{objectFit:'cover',objectPosition:' 0px -63px'}}
             className="br-20"
             alt="Shivansh"
             />

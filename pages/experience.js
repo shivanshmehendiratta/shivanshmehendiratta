@@ -278,7 +278,7 @@ export default function Experience() {
       <Card key={internship.serial} onClick={()=>onCardClick(index)} state={active[index]}>
         <InnerCard state={active[index]}>
           <CardImage>
-            <Image 
+            <img 
               src={internship.logo}
               height='50px'
               width='50px'

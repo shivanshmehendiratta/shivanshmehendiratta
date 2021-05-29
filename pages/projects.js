@@ -110,11 +110,10 @@ export default function Blog() {
   <Container id="style-1">
     <Project>
         <ProjectImage>
-            <Image
+            <img
                 src='https://res.cloudinary.com/instacloneapp/image/upload/v1622213341/shivansh.xyz/edgar-project_vgihye.jpg'
                 width={600}
                 height={400}
-                unoptimized
             />
         </ProjectImage>
         <ProjectText>
@@ -132,7 +131,7 @@ export default function Blog() {
   
     <Project>
         <ProjectImage>
-            <Image
+            <img
                 src='https://res.cloudinary.com/instacloneapp/image/upload/v1622216555/shivansh.xyz/myst_xnfado.jpg'
                 width={600}
                 height={400}

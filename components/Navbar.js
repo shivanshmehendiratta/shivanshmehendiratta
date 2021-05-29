@@ -188,8 +188,8 @@ React.useEffect(()=>{
             </ItemLink>
           </Item> */}
           <Item>
-            <ItemLink variant={variant} target="#" href="https://www.behance.net/igordumencic">
-              Behance
+            <ItemLink variant={variant} target="#" href="mailto:shivansh.19521@sscbs.du.ac.in">
+              Mail
             </ItemLink>
           </Item>
           <Item>
