@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import {createGlobalStyle} from "styled-components";
 import Link from 'next/link'
+import ReactGA from 'react-ga';
+
 const Nav = styled.nav`
   padding: 0 20px;
   min-height: 9vh;
@@ -23,7 +25,6 @@ const Logo = styled.h1`
 const Menu = styled.ul`
   list-style: none;
   display: flex;
-  cursor: url('https://res.cloudinary.com/instacloneapp/image/upload/c_fit,h_32,w_32/v1622223328/shivansh.xyz/surprised_tl73ho.png'), auto;
   li:nth-child(2) {
     margin: 0px 20px;
   }
@@ -49,6 +50,8 @@ const Socials = styled.ul`
 `;
 
 const Item = styled.li`
+  cursor: url('https://res.cloudinary.com/instacloneapp/image/upload/c_scale,h_32/v1622269574/shivansh.xyz/pointer_v8dsps.png'), auto;
+
 `;
 const ItemLink = styled.a`
   // color: ${props => props.variant==='#fff'?({ theme }) => theme.colors.greyDark:'#fff'};
@@ -140,6 +143,10 @@ React.useEffect(()=>{
   window.$crisp.push(["do", "chat:open"]);
 }
 },[launchCrisp])
+React.useEffect(()=>{
+  ReactGA.initialize('G-WS5Z0WM77W');
+  ReactGA.pageview( window.location.pathname + window.location.search);
+},[])
   return (
     <>
       <Nav variant={variant}>
@@ -198,13 +205,13 @@ React.useEffect(()=>{
             </ItemLink>
           </Item>
         </Socials>
-        <NavIcon onClick={() => toggleNav(!toggle)}>
+        {/* <NavIcon onClick={() => toggleNav(!toggle)}>
           <Line open={toggle} />
           <Line open={toggle} />
           <Line open={toggle} />
-        </NavIcon>
+        </NavIcon> */}
       </Nav>
-      <Overlay open={toggle}>
+      {/* <Overlay open={toggle}>
         <OverlayMenu open={toggle}>
           <Item>
             <Link target="#" href="https://www.instagram.com/igor_dumencic/">
@@ -222,7 +229,7 @@ React.useEffect(()=>{
             </Link>
           </Item>
         </OverlayMenu>
-      </Overlay>
+      </Overlay> */}
     </>
   );
 };

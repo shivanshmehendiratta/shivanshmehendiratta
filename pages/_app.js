@@ -1,5 +1,4 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
-
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
@@ -14,6 +13,8 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: #363636;
     font-size: 1em;
+    cursor: url('https://res.cloudinary.com/instacloneapp/image/upload/c_scale,h_32/v1622269574/shivansh.xyz/pointer_v8dsps.png'), auto;
+
   }
 `
 
@@ -29,6 +30,8 @@ const theme = {
 }
 
 export default function App({ Component, pageProps }) {
+  
+
   return (
     <>
       <GlobalStyle />

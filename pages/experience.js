@@ -78,7 +78,7 @@ const Cards = styled.div`
 `
 const Card = styled.div`
   display: flex;
-  cursor: default;
+  // cursor: default;
   box-shadow: ${props=>props.state==='active'?"0px 0px 4px 2px rgba(0, 141, 221, 0.07)":""};
   border-radius: 10px;
   justify-content: ${props=>props.state==='active'?"flex-start":"flex-end"};
@@ -90,6 +90,8 @@ const InnerCard = styled.div`
   display: flex;
   margin: 10px;
   align-items: center;
+  cursor: url('https://res.cloudinary.com/instacloneapp/image/upload/c_scale,h_32/v1622269574/shivansh.xyz/pointer_v8dsps.png'), auto;
+
   background: ${props=>props.state==='active'?"rgba(208, 235, 255, 0.75)":""};
   :hover{
     background: ${props=>props.state!=='active'?"rgba(208, 235, 255, 0.75)":""};
@@ -100,21 +102,32 @@ const CardImage = styled.div`
   margin: 10px;
   align-items: center;
   display: flex;
+  img{
+  cursor: url('https://res.cloudinary.com/instacloneapp/image/upload/c_scale,h_32/v1622269574/shivansh.xyz/pointer_v8dsps.png'), auto;
+
+  }
+  cursor: url('https://res.cloudinary.com/instacloneapp/image/upload/c_scale,h_32/v1622269574/shivansh.xyz/pointer_v8dsps.png'), auto;
+
   border-radius: 5px;
   filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.25));
 `
 const CardText = styled.div`
+  cursor: url('https://res.cloudinary.com/instacloneapp/image/upload/c_scale,h_32/v1622269574/shivansh.xyz/pointer_v8dsps.png'), auto;
   padding-left: 20px;
   width: ${props=>props.state==='active'?"19vw":"15vw"};
 `
 const Role = styled.div`
   font-weight: 600;
   font-size: 12px;
+  cursor: url('https://res.cloudinary.com/instacloneapp/image/upload/c_scale,h_32/v1622269574/shivansh.xyz/pointer_v8dsps.png'), auto;
+
   color: ${props=>props.state==='active'?"#0035F0":""};
 `
 const Company = styled.div`
   font-weight: 400;
   font-size: 12px;
+  cursor: url('https://res.cloudinary.com/instacloneapp/image/upload/c_scale,h_32/v1622269574/shivansh.xyz/pointer_v8dsps.png'), auto;
+
   color: ${props=>props.state==='active'?"#0035F0":''};
 `
 const Divider = styled.div`
