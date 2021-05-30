@@ -383,7 +383,7 @@ export default function Experience() {
 
         </Bullets>
           <BulletPoint>
-            {activeInternship.bullets[0]}
+            {activeInternship.bullets[1]}
             <br/>
           </BulletPoint>
         </BulletPoints>

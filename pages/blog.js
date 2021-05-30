@@ -59,17 +59,22 @@ const Blog = styled.div`
       background: #fafafa;
   }
   padding-left: 0.5em;
+  cursor: url('https://res.cloudinary.com/instacloneapp/image/upload/c_scale,h_32/v1622269574/shivansh.xyz/pointer_v8dsps.png'), auto;
+
   padding-right: 0.5em;
 `
 const Date = styled.h1`
   width: 30%;
   font-size: 1em;
   font-weight: 400;
+  cursor: url('https://res.cloudinary.com/instacloneapp/image/upload/c_scale,h_32/v1622269574/shivansh.xyz/pointer_v8dsps.png'), auto;
+
   color: #777;
 `
 const Title = styled.h1`
   font-size: 1em;
   font-weight: 400;
+  cursor: url('https://res.cloudinary.com/instacloneapp/image/upload/c_scale,h_32/v1622269574/shivansh.xyz/pointer_v8dsps.png'), auto;
   color: #222;
 `
 const Divider = styled.div`

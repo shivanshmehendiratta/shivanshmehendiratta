@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {createGlobalStyle} from "styled-components";
 import Link from 'next/link'
 import ReactGA from 'react-ga';
+import { useRouter } from "next/router";
 
 const Nav = styled.nav`
   padding: 0 20px;
@@ -53,34 +54,28 @@ const Item = styled.li`
   cursor: url('https://res.cloudinary.com/instacloneapp/image/upload/c_scale,h_32/v1622269574/shivansh.xyz/pointer_v8dsps.png'), auto;
 
 `;
-const ItemLink = styled.a`
-  // color: ${props => props.variant==='#fff'?({ theme }) => theme.colors.greyDark:'#fff'};
-  color: ${({ theme }) => theme.colors.greyDark}
-
-  cursor: pointer;
-`;
 
 // const Link = styled.a`
 //   color: white;
 //   text-decoration: none;
 
 //   :hover {
-//     text-decoration: underline;
-//   }
-// `;
-
-const NavIcon = styled.button`
+  //     text-decoration: underline;
+  //   }
+  // `;
+  
+  const NavIcon = styled.button`
   background: none;
   cursor: pointer;
   border: none;
   outline: none;
-
+  
   @media (min-width: 769px) {
     display: none;
   }
-`;
-
-const Line = styled.span`
+  `;
+  
+  const Line = styled.span`
   display: block;
   border-radius: 50px;
   width: 25px;
@@ -88,51 +83,57 @@ const Line = styled.span`
   margin: 5px;
   background-color: #fff;
   transition: width 0.4s ease-in-out;
-
+  
   :nth-child(2) {
     width: ${props => (props.open ? "40%" : "70%")};
   }
-`;
-
-const Overlay = styled.div`
+  `;
+  
+  const Overlay = styled.div`
   position: absolute;
   height: ${props => (props.open ? "91vh" : 0)};
   width: 100vw;
   background: #1c2022;
   transition: height 0.4s ease-in-out;
-
+  
   @media (min-width: 769px) {
     display: none;
   }
-`;
-
-const OverlayMenu = styled.ul`
+  `;
+  
+  const OverlayMenu = styled.ul`
   list-style: none;
   position: absolute;
   left: 50%;
   top: 45%;
   transform: translate(-50%, -50%);
-
+  
   li {
     opacity: ${props => (props.open ? 1 : 0)};
     // font-size: 25px;
     margin: 50px 0px;
     transition: opacity 0.4s ease-in-out;
   }
-
+  
   li:nth-child(2) {
     margin: 50px 0px;
   }
-`;
-const Navbar = ({variant}) => {
-  
-
-const [toggle, toggleNav] = useState(false);
-const [launchCrisp, setLaunchCrisp] = useState(false);
-React.useEffect(()=>{
-  if(launchCrisp===true)
-  {window.$crisp = [];
-  window.CRISP_WEBSITE_ID = "beab1b2a-5647-4e15-979b-9f48bb88a136";
+  `;
+  const Navbar = ({variant}) => {
+    const router = useRouter()
+    console.log(router.pathname)
+    const ItemLink = styled.a`
+      // color: ${props => props.variant==='#fff'?({ theme }) => theme.colors.greyDark:'#fff'};
+      color: ${props=> (router.pathname=== props.path ? '#0065FF' : ({ theme }) => theme.colors.greyDark)};
+    
+    `;
+    
+    const [toggle, toggleNav] = useState(false);
+    const [launchCrisp, setLaunchCrisp] = useState(false);
+    React.useEffect(()=>{
+      if(launchCrisp===true)
+      {window.$crisp = [];
+        window.CRISP_WEBSITE_ID = "beab1b2a-5647-4e15-979b-9f48bb88a136";
   (function () {
     var d = document;
     var s = d.createElement("script");
@@ -156,28 +157,28 @@ React.useEffect(()=>{
         <Menu>
           <Item>
             <Link href="/">
-            <ItemLink variant={variant}>
+            <ItemLink path='/' variant={variant}>
               about
             </ItemLink>
             </Link>
           </Item>
           <Item>
             <Link href="/experience">
-            <ItemLink variant={variant}>
+            <ItemLink path='/experience' variant={variant}>
             experience
             </ItemLink>
             </Link>
           </Item>
           <Item>
             <Link href="/projects">
-            <ItemLink variant={variant}>
+            <ItemLink path='/projects' variant={variant}>
             projects
             </ItemLink>
             </Link>
           </Item>
           <Item>
             <Link href="/blog">
-            <ItemLink variant={variant}>
+            <ItemLink path='/blog' variant={variant}>
             blog
             </ItemLink>
             </Link>

@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar'
 import {createGlobalStyle} from "styled-components";
 import React, { useState, useEffect } from "react";
 import { useRouter } from 'next/router'
+import { BrowserView, MobileView } from 'react-device-detect';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -53,6 +54,11 @@ const TextContainer = styled.div`
   width: 50%;
 
 `
+const MobileTextContainer = styled.div`
+  display: flex;
+  width: 100%;
+
+`
 const Text = styled.h1`
   font-weight: 400;
 `
@@ -67,10 +73,11 @@ export default function Home() {
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet" />
   </Head>
-  <Navbar variant='#fff' />
   <GlobalStyle />
   <CurrentPage>About</CurrentPage>
   {/* <Title>My page</Title> */}
+  <BrowserView>
+      <Navbar variant='#fff' />
   <Container>
     <ImageContainer>
     <img
@@ -87,7 +94,7 @@ export default function Home() {
       👋 Hi, my name is Shivansh Mehendiratta and I'm a final-year undergrad at CBS studying computer science. I'm excited about technology, finance, and startups and  I care about creating things that can make an impact at scale. 
         <br/>
         <br/>
-      Presently, I’m leading product at Gomigo solving for ~70 million SMEs in the country. Previously, I interned as an analyst at Lumis Partners; did market research at TUZ Ventures; software engineering at Redesyn; and operations research at Ambit Capital. At CBS, I served as the Chapter Head at Collegiate Entrepreneurs Organisation, Delhi University; Core member at Nucleus, the analytics society of the college.  I'm also an investment partner at Dorm Room Fund, a student-run fund backed by First Round. My other interests include backpacking, long-distance running, and playing table-tennis.
+      Presently, I’m leading product at Gomigo solving for ~70 million SMEs in the country. Previously, I interned as an analyst at Lumis Partners; did market research at TUZ Ventures; software engineering at Redesyn; and operations research at Ambit Capital. At CBS, I served as the Chapter Head at Collegiate Entrepreneurs Organisation, Delhi University; Core member at Nucleus, the analytics society of the college. My other interests include backpacking, long-distance running, and playing table-tennis.
         <br/>
         <br/>
         Feel free to reach out at <a href="mailto:shivansh.19521@sscbs.du.ac.in">shivansh.19521@sscbs.du.ac.in</a>! Or, schedule a quick chat <a href="https://calendly.com/shivansh-mehendiratta/30min">here</a>.
@@ -95,6 +102,36 @@ export default function Home() {
       </Text>
     </TextContainer>
   </Container>
+  </BrowserView>
+  <MobileView>
+      <Container>
+    
+    <MobileTextContainer>
+      <Text>
+      👋 Hi, 
+      <br/>
+      <br/>
+      
+      You're at the right place with the wrong device :( 
+      <br/>
+      <br/>
+        
+        this isn't mobile friendly yet (wanted to get the first version up and running), 
+        
+      <br/>
+      <br/>
+        
+        hence, would request you to visit this on your laptop/PC. 
+      <br/>
+      <br/>
+      
+      Thanks!
+      <br/>
+      Shivansh
+      </Text>
+    </MobileTextContainer>
+  </Container>
+  </MobileView>
   </div>
   )
 }

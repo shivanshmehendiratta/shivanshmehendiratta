@@ -87,6 +87,7 @@ const Description = styled.h3`
   font-weight: 400;
   color: #505F79;
   font-size: 12px;
+  width: 600px;
 `
 const Actions = styled.h3`
     font-weight: 400;
@@ -118,14 +119,15 @@ export default function Blog() {
         </ProjectImage>
         <ProjectText>
             <Heading>
-                MrktdDB Holdings Scraper
+                MrktDB
             </Heading>
             <Description>
-                Create db scraper stored in MongoDBnfvj jkf d jkfdvk dfdsdv fbdfvbxf
+            A platform to analyze past 20-year US SEC EDGAR filings (13D/F/G) of 8000 companies, retrieved from the U.S. Securities and Exchange 
+          Commission’s EDGAR database.
             </Description>
-            <Actions>
+            {/* <Actions>
                 Learn More ↗
-            </Actions>
+            </Actions> */}
         </ProjectText>
     </Project>
   
@@ -139,14 +141,14 @@ export default function Blog() {
         </ProjectImage>
         <ProjectText>
             <Heading>
-                MrktdDB Holdings Scraper
+                myst.club
             </Heading>
             <Description>
-                Create db scraper stored in MongoDBnfvj jkf d jkfdvk dfdsdv fbdfvbxf
+                An invite-only social networking platform for college students to discover students to discover students, courses, college clubs, events and more.
             </Description>
-            <Actions>
+            {/* <Actions>
                 Learn More ↗
-            </Actions>
+            </Actions> */}
         </ProjectText>
     </Project>
   
