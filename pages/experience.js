@@ -2,8 +2,8 @@ import styled from 'styled-components'
 import Head from 'next/head'
 import Image from 'next/image'
 import Navbar from '../components/Navbar'
-import {createGlobalStyle} from "styled-components";
-import React, {useState,useEffect} from 'react'
+import { createGlobalStyle } from "styled-components";
+import React, { useState, useEffect } from 'react'
 import { data } from '../data/internshipdata';
 import { useRouter } from 'next/router'
 
@@ -73,17 +73,17 @@ const Cards = styled.div`
   flex-direction: column;
   margin-top: 1em;
   margin-bottom: 1em;
-  box-shadow: ${props=>props.state=='active'?"0px 0px 1px rgba(0, 0, 0, 0.25)":""};
+  box-shadow: ${props => props.state == 'active' ? "0px 0px 1px rgba(0, 0, 0, 0.25)" : ""};
 
 `
 const Card = styled.div`
   display: flex;
   // cursor: default;
-  box-shadow: ${props=>props.state==='active'?"0px 0px 4px 2px rgba(0, 141, 221, 0.07)":""};
+  box-shadow: ${props => props.state === 'active' ? "0px 0px 4px 2px rgba(0, 141, 221, 0.07)" : ""};
   border-radius: 10px;
-  justify-content: ${props=>props.state==='active'?"flex-start":"flex-end"};
-  width: ${props=>props.state==='active'?"100%":"100%"};
-  // width: ${props=>props.state==='active'?"20vw":'18vw'};
+  justify-content: ${props => props.state === 'active' ? "flex-start" : "flex-end"};
+  width: ${props => props.state === 'active' ? "100%" : "100%"};
+  // width: ${props => props.state === 'active' ? "20vw" : '18vw'};
 
 `
 const InnerCard = styled.div`
@@ -92,9 +92,9 @@ const InnerCard = styled.div`
   align-items: center;
   cursor: url('https://res.cloudinary.com/instacloneapp/image/upload/c_scale,h_32/v1622269574/shivansh.xyz/pointer_v8dsps.png'), auto;
 
-  background: ${props=>props.state==='active'?"rgba(208, 235, 255, 0.75)":""};
+  background: ${props => props.state === 'active' ? "rgba(208, 235, 255, 0.75)" : ""};
   :hover{
-    background: ${props=>props.state!=='active'?"rgba(208, 235, 255, 0.75)":""};
+    background: ${props => props.state !== 'active' ? "rgba(208, 235, 255, 0.75)" : ""};
   }
   border-radius: 10px;
 `
@@ -114,21 +114,21 @@ const CardImage = styled.div`
 const CardText = styled.div`
   cursor: url('https://res.cloudinary.com/instacloneapp/image/upload/c_scale,h_32/v1622269574/shivansh.xyz/pointer_v8dsps.png'), auto;
   padding-left: 20px;
-  width: ${props=>props.state==='active'?"19vw":"15vw"};
+  width: ${props => props.state === 'active' ? "19vw" : "15vw"};
 `
 const Role = styled.div`
   font-weight: 600;
   font-size: 12px;
   cursor: url('https://res.cloudinary.com/instacloneapp/image/upload/c_scale,h_32/v1622269574/shivansh.xyz/pointer_v8dsps.png'), auto;
 
-  color: ${props=>props.state==='active'?"#0035F0":""};
+  color: ${props => props.state === 'active' ? "#0035F0" : ""};
 `
 const Company = styled.div`
   font-weight: 400;
   font-size: 12px;
   cursor: url('https://res.cloudinary.com/instacloneapp/image/upload/c_scale,h_32/v1622269574/shivansh.xyz/pointer_v8dsps.png'), auto;
 
-  color: ${props=>props.state==='active'?"#0035F0":''};
+  color: ${props => props.state === 'active' ? "#0035F0" : ''};
 `
 const Divider = styled.div`
   width: 80%;
@@ -144,7 +144,7 @@ const DetailedView = styled.div`
 `
 const CoverImage = styled.div`
   display: flex;
-  background-image: url(${props=>props.src});
+  background-image: url(${props => props.src});
   background-size: cover;
   height: 20vh;
   width: 100%;
@@ -247,15 +247,15 @@ const BulletPoint = styled.p`
 `
 export default function Experience() {
   const happyPress = useKeyPress(40);
-  
-  const onCardClick = (cardNumber) =>{
+
+  const onCardClick = (cardNumber) => {
     let arr = [...active]
-    setAll(arr,'inactive')
-    arr[cardNumber]='active'
+    setAll(arr, 'inactive')
+    arr[cardNumber] = 'active'
     setActive(arr)
     setActiveInternship(data[cardNumber])
-  } 
-  
+  }
+
   function setAll(a, v) {
     var i, n = a.length;
     for (i = 0; i < n; ++i) {
@@ -263,135 +263,135 @@ export default function Experience() {
     }
   }
 
-  
+
   var ARR = [];
-  
-  for(var i = 0; i < data.length; i++) {
+
+  for (var i = 0; i < data.length; i++) {
     ARR.push('inactive');
   }
   ARR[0] = 'active'
   const [active, setActive] = React.useState(ARR)
-  const [activeInternship,setActiveInternship] = React.useState(data[0])
+  const [activeInternship, setActiveInternship] = React.useState(data[0])
   return (
     <>
-  <Head>
-    <title>Shivansh Mehendiratta</title>
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    {/* <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />   */}
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet" />
-  </Head>
-  <Navbar variant='#000' />
-  <GlobalStyle />
-  <CurrentPage>Experience</CurrentPage>
-  {/* <Title>My page</Title> */}
-  <Container>
-    <Cards>
-      {data.map((internship,index)=>(<>
-      <Card key={internship.serial} onClick={()=>onCardClick(index)} state={active[index]}>
-        <InnerCard state={active[index]}>
-          <CardImage>
-            <img 
-              src={internship.logo}
-              height='50px'
-              width='50px'
-              className='br-5'
-            />
-          </CardImage>
-          <CardText state={active[index]}>
-            <Role state={active[index]}>
-              {internship.role}
-            </Role>
-            <Company state={active[index]}>
-              {internship.company}
-            </Company>
-          </CardText>
-        </InnerCard>
-      </Card>
-      {index<(data.length-1)?<Divider></Divider>:""}
-      </>))}
-    </Cards>
-    <DetailedView>
-      <CoverImage src={activeInternship.coverImage}>
-      </CoverImage>
-      <AboutRole>
-        <RoleHeading>
-        {activeInternship.role}
-        </RoleHeading>
-        <RoleDetailsRow>
-          <Durations>
-            <When>
-              {activeInternship.when}
-            </When>
-            <Duration>
-              {activeInternship.duration}
-            </Duration>
-          </Durations>
-          <Location>
-            {activeInternship.location}
-          </Location>
-        </RoleDetailsRow>
-      </AboutRole>
-      <br/>
-      <AboutCompanyContainer>
-        <CompanyLogo>
-          <Image
-            src={activeInternship.logo}
-            height='80px'
-            width='80px'
-            unoptimized
-          />
-        </CompanyLogo>
-        <AboutCompanyText>
-          <AboutCompanyHeading>
-            About {activeInternship.company}
-          </AboutCompanyHeading>
-          <AboutCompanyDescription>
-            {activeInternship.about}
-          </AboutCompanyDescription>
-        </AboutCompanyText>
-      </AboutCompanyContainer>
-      <br/>
-      <BulletPointsContainer>
-       
-        <BulletPoints>
-        <Bullets>
-        <svg width="12" height="46" viewBox="0 0 12 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="6.5" y1="10" x2="6.5" y2="46" stroke="#DEDEDE"/>
-        <ellipse cx="6" cy="5.5" rx="6" ry="5.5" fill="#E8E8E8"/>
-        <ellipse cx="6" cy="5.5" rx="6" ry="5.5" fill="#E8E8E8"/>
-        <ellipse cx="6" cy="5.5" rx="6" ry="5.5" fill="#E8E8E8"/>
-        </svg>
+      <Head>
+        <title>Shivansh Mehendiratta</title>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        {/* <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />   */}
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet" />
+      </Head>
+      <Navbar variant='#000' />
+      <GlobalStyle />
+      {/* <CurrentPage>Experience</CurrentPage> */}
+      {/* <Title>My page</Title> */}
+      <Container>
+        <Cards>
+          {data.map((internship, index) => (<>
+            <Card key={internship.serial} onClick={() => onCardClick(index)} state={active[index]}>
+              <InnerCard state={active[index]}>
+                <CardImage>
+                  <img
+                    src={internship.logo}
+                    height='50px'
+                    width='50px'
+                    className='br-5'
+                  />
+                </CardImage>
+                <CardText state={active[index]}>
+                  <Role state={active[index]}>
+                    {internship.role}
+                  </Role>
+                  <Company state={active[index]}>
+                    {internship.company}
+                  </Company>
+                </CardText>
+              </InnerCard>
+            </Card>
+            {index < (data.length - 1) ? <Divider></Divider> : ""}
+          </>))}
+        </Cards>
+        <DetailedView>
+          <CoverImage src={activeInternship.coverImage}>
+          </CoverImage>
+          <AboutRole>
+            <RoleHeading>
+              {activeInternship.role}
+            </RoleHeading>
+            <RoleDetailsRow>
+              <Durations>
+                <When>
+                  {activeInternship.when}
+                </When>
+                <Duration>
+                  {activeInternship.duration}
+                </Duration>
+              </Durations>
+              <Location>
+                {activeInternship.location}
+              </Location>
+            </RoleDetailsRow>
+          </AboutRole>
+          <br />
+          <AboutCompanyContainer>
+            <CompanyLogo>
+              <Image
+                src={activeInternship.logo}
+                height='80px'
+                width='80px'
+                unoptimized
+              />
+            </CompanyLogo>
+            <AboutCompanyText>
+              <AboutCompanyHeading>
+                About {activeInternship.company}
+              </AboutCompanyHeading>
+              <AboutCompanyDescription>
+                {activeInternship.about}
+              </AboutCompanyDescription>
+            </AboutCompanyText>
+          </AboutCompanyContainer>
+          <br />
+          <BulletPointsContainer>
+
+            <BulletPoints>
+              <Bullets>
+                <svg width="12" height="46" viewBox="0 0 12 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="6.5" y1="10" x2="6.5" y2="46" stroke="#DEDEDE" />
+                  <ellipse cx="6" cy="5.5" rx="6" ry="5.5" fill="#E8E8E8" />
+                  <ellipse cx="6" cy="5.5" rx="6" ry="5.5" fill="#E8E8E8" />
+                  <ellipse cx="6" cy="5.5" rx="6" ry="5.5" fill="#E8E8E8" />
+                </svg>
 
 
-        </Bullets>
-          <BulletPoint>
-            {activeInternship.bullets[0]}
-            <br/>
-           
-          </BulletPoint>
-        </BulletPoints>
-        <BulletPoints>
-        <Bullets>
-        <svg width="12" height="46" viewBox="0 0 12 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="6.5" y1="10" x2="6.5" y2="46" stroke="#DEDEDE"/>
-        <ellipse cx="6" cy="5.5" rx="6" ry="5.5" fill="#E8E8E8"/>
-        <ellipse cx="6" cy="5.5" rx="6" ry="5.5" fill="#E8E8E8"/>
-        <ellipse cx="6" cy="5.5" rx="6" ry="5.5" fill="#E8E8E8"/>
-        </svg>
+              </Bullets>
+              <BulletPoint>
+                {activeInternship.bullets[0]}
+                <br />
+
+              </BulletPoint>
+            </BulletPoints>
+            <BulletPoints>
+              <Bullets>
+                <svg width="12" height="46" viewBox="0 0 12 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="6.5" y1="10" x2="6.5" y2="46" stroke="#DEDEDE" />
+                  <ellipse cx="6" cy="5.5" rx="6" ry="5.5" fill="#E8E8E8" />
+                  <ellipse cx="6" cy="5.5" rx="6" ry="5.5" fill="#E8E8E8" />
+                  <ellipse cx="6" cy="5.5" rx="6" ry="5.5" fill="#E8E8E8" />
+                </svg>
 
 
-        </Bullets>
-          <BulletPoint>
-            {activeInternship.bullets[1]}
-            <br/>
-          </BulletPoint>
-        </BulletPoints>
-      </BulletPointsContainer>
+              </Bullets>
+              <BulletPoint>
+                {activeInternship.bullets[1]}
+                <br />
+              </BulletPoint>
+            </BulletPoints>
+          </BulletPointsContainer>
 
-    </DetailedView>
-  </Container>
-  </>
+        </DetailedView>
+      </Container>
+    </>
   )
 }
 
