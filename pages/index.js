@@ -64,6 +64,10 @@ const Text = styled.h1`
 `
 
 export default function Home() {
+  const [width,setWidth] = useState(null)
+  useEffect(()=>{
+    setWidth(window.innerWidth)
+  },[])
   const happyPress = useKeyPress(40);
   return (
     <div>
@@ -76,7 +80,8 @@ export default function Home() {
       <GlobalStyle />
       <CurrentPage>About</CurrentPage>
       {/* <Title>My page</Title> */}
-      <BrowserView>
+      
+    {width>850? <>
         <Navbar variant='#fff' />
         <Container>
           <ImageContainer>
@@ -94,7 +99,7 @@ export default function Home() {
               👋 Hi, my name is Shivansh Mehendiratta and I'm a final-year undergrad at CBS studying computer science. I'm excited about technology, finance, and startups and  I care about creating things that can make an impact at scale.
               <br />
               <br />
-              Presently, I’m leading product at Gomigo solving for ~70 million SMEs in the country. Previously, I interned as an analyst at Lumis Partners; did market research at TUZ Ventures; software engineering at Redesyn; and operations research at Ambit Capital. At CBS, I served as the Chapter Head at Collegiate Entrepreneurs Organisation, Delhi University; Core member at Nucleus, the analytics society of the college. My other interests include backpacking, long-distance running, and playing table-tennis.
+              I'm the co-founder at <a href="https://apps.apple.com/US/app/id1576564074?mt=8">Fitteo</a>, a marketplace for workouts, making quality fitness education accessible to the masses. Previously, I led product at <a href="https://scrut.io">Scrut</a> (formerly Gomigo) helping companies mantain a strong security posture and get ISO 27001, SOC2, GDPR, HIPAA compliant. During my sophomore year, I interned as an analyst at Lumis Partners; did market research at TUZ Ventures; software engineering at Redesyn; and operations research at Ambit Capital. My other interests include practising yoga, long-distance running, and being brutal at the table-tennis table.
               <br />
               <br />
               Feel free to reach out at <a href="mailto:shivansh.19521@sscbs.du.ac.in">shivansh.19521@sscbs.du.ac.in</a>! Or, schedule a quick chat <a href="https://calendly.com/shivansh-mehendiratta/30min">here</a>.
@@ -102,36 +107,21 @@ export default function Home() {
             </Text>
           </TextContainer>
         </Container>
-      </BrowserView>
-      <MobileView>
-        <Container>
-
+      </>:<>
           <MobileTextContainer>
+          <div style={{display:'flex',width:'80%',margin:'70px auto'}}>
             <Text>
-              👋 Hi,
+              👋 Hi, my name is Shivansh Mehendiratta and I'm a final-year undergrad at CBS studying computer science. I'm excited about technology, fitness, and startups and  I care about creating things that can make an impact at scale.
               <br />
               <br />
-
-              You're at the right place with the wrong device :(
+              I'm the co-founder at <a href="https://apps.apple.com/US/app/id1576564074?mt=8">Fitteo</a>, a marketplace for workouts, making quality fitness education accessible to the masses. Previously, I led product at <a href="https://scrut.io">Scrut</a> (formerly Gomigo) helping companies mantain a strong security posture and get ISO 27001, SOC2, GDPR, HIPAA compliant. During my sophomore year, I interned as an analyst at Lumis Partners; did market research at TUZ Ventures; software engineering at Redesyn; and operations research at Ambit Capital. My other interests include practising yoga, long-distance running, and being brutal at the table-tennis table.
               <br />
               <br />
-
-              this isn't mobile friendly yet (wanted to get the first version up and running),
-
-              <br />
-              <br />
-
-              hence, would request you to visit this on your laptop/PC.
-              <br />
-              <br />
-
-              Thanks!
-              <br />
-              Shivansh
+              Feel free to reach out at <a href="mailto:shivansh.19521@sscbs.du.ac.in">shivansh.19521@sscbs.du.ac.in</a>! Or, schedule a quick chat <a href="https://calendly.com/shivansh-mehendiratta/30min">here</a>.
             </Text>
+          </div>
           </MobileTextContainer>
-        </Container>
-      </MobileView>
+      </>}
     </div>
   )
 }
